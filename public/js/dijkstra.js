@@ -109,22 +109,6 @@ function mouseClick (e) {
             dijkstra(vertex);
         }
         break;    
-        case "shortestPath":
-        if(clickTarget.nodeName=="circle") {
-            if(!isDrawingEdge){
-                edgeVertex1 = clickTarget;
-                isDrawingEdge=true;
-            }
-                else if(clickTarget != edgeVertex1){ //edge cannot be from a vertex to itself
-                    edgeVertex2 = clickTarget;
-                    drawEdge(edgeVertex1, edgeVertex2);
-                    edgeVertex1 = null;
-                    edgeVertex2 = null;
-                    isDrawingEdge = false;
-                }
-            }
-            break;
-
         }
 
     }
