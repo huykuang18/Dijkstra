@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Shortest Path using Dijkstra's Algorithm</title>
+	<link rel="icon" type="image/png" href="favicon.png" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="public/css/dijkstra.css">
+</head>
+<body>
+	<div id="all" class="container-fluid" style="padding-top: 1%;">
+		<div class="row">
+			<div class="col-md-8">
+				<svg width="640" height="480" version="1.1" id="shortestPathSvg" xmlns="http://www.w3.org/2000/svg">
+					<g id="gedge"></g>
+					<g id="gvertex"></g>
+				</svg>
+				<h1 style="color: white;">Sơ đồ thuật toán Dijkstra tìm đường ngắn nhất</h1>
+			</div>
+			<div class="col-md-4">
+				<div class="row" id="right1">
+					<h2 style="margin-left: 30%;">Thao tác</h2>
+					<div class="col-md-6">
+						<div class="row"><input type="radio" name="radWorkMode" value="drawVertex" checked>Thêm đỉnh</div>
+						<div class="row"><input type="radio" name="radWorkMode" value="drawEdge">Thêm cạnh</div>
+						<div class="row"><input type="radio" name="radWorkMode" value="setStart">Bắt đầu</div>
+						<div class="row"><button class="btn btn-sm btn-warning" id="savesvgbutton">Lưu sơ đồ</button></div>
+					</div>
+					<div class="col-md-6">
+						<div class="row"><input type="radio" name="radWorkMode" value="setCostLabel">Sửa đỉnh hoặc cạnh</div>
+						<div class="row"><input type="radio" name="radWorkMode" value="delVertexEdge">Xóa đỉnh hoặc cạnh</div>
+						<div class="row"><input type="radio" name="radWorkMode" value="shortestPath">Đường đi ngắn nhất</div>					
+						
+					</div>
+				</div><br>		
+				<div class="row">
+					<table class="table table-sm table-bordered" id="dijkstraSteps"></table>	
+				</div>
+				<div class="row" id="help">
+					<h2 style="margin-left: 30%;">Hướng dẫn &nbsp;<i class="fa fa-question-circle"></i></h2>
+					<ul style="list-style: none;">
+						<li><b>(1)&nbsp;</b>Chọn <b>Thêm đỉnh</b>, click chuột vào vùng vẽ hình để tạo các điểm.</li>
+						<li><b>(2)&nbsp;</b>Chọn <b>Thêm cạnh</b> để tạo ra cạnh nối giữa 2 đỉnh bằng cách click chuột lần lượt vào từng đỉnh.</li>
+						<li><b>(3)&nbsp;</b>Khi muốn thay đổi tên đỉnh hoặc giá trị của cạnh, nhấn chọn <b>Sửa dỉnh hoặc cạnh</b>.</li>
+						<li><b>(4)&nbsp;</b>Khi muốn xóa đỉnh hoặc cạnh, nhấn chọn <b>Xóa dỉnh hoặc cạnh</b>.</li>
+						<li><b>(5)&nbsp;</b>Cuối cùng, để thuật toán hoạt động, chọn <b>Bắt đầu</b> rồi bấm chọn 1 điểm xuất phát.</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		
+		<br>
+		
+	</div>
+	
+
+	<!-- The Modal -->
+	<div id="divEdgeCost" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close" onclick="closeDialogEdgeCost()">&times;</span>
+			<label>Độ dài cạnh: </label>
+			<input style="text-align: center;" type="number" maxlength="4" required="required" autocomplete="off" min="1" max="1000" name="inputEdgeCost" id="inputEdgeCost">
+			<button class="btn btn-outline-dark" id="btnSetEdgeCost">Xác nhận</button>
+
+		</div>
+	</div>
+
+	<div id="divVertexLabel" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close" onclick="closeDialogVertexLabel()">&times;</span>
+			<label>Tên đỉnh: </label>
+			<input style="text-align: center;" type="text" maxlength="2" required="required" autocomplete="off" name="inputVertexLabel" id="inputVertexLabel">
+			<button class="btn btn-outline-dark" id="btnSetVertexLabel">Xác nhận</button>
+
+		</div>
+	</div>
+
+
+	<script src="public/js/dijkstra.js"></script>
+
+	<div class="container-fluid" style="margin-left: 2%;">
+		
+	</div>
+
+
+
+</body>
+</html>
